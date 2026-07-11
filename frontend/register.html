@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Counter - Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employee Registration</h1>
+            <nav>
+                <a href="/">Live View</a>
+                <a href="/register" class="active">Register</a>
+                <a href="/employees">Employees</a>
+                <a href="/attendance">Attendance</a>
+            </nav>
+        </header>
+        <div class="register-section">
+            <div class="register-form">
+                <h2>New Employee</h2>
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="empName" placeholder="Enter employee name">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="empEmail" placeholder="employee@company.com">
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" id="empDepartment" placeholder="Engineering, HR, etc.">
+                </div>
+                <button id="registerBtn" class="btn btn-start">Register Employee</button>
+                <div id="registerStatus" class="status-msg"></div>
+            </div>
+            <div class="face-capture" id="faceCaptureSection" style="display:none;">
+                <h2>Capture Face Samples</h2>
+                <p>Look at the camera and click capture. Capture from different angles.</p>
+                <div class="video-container small-video">
+                    <video id="captureVideo" autoplay playsinline></video>
+                    <div class="overlay-status" id="captureStatus">Camera starting...</div>
+                </div>
+                <div class="capture-controls">
+                    <button id="captureBtn" class="btn btn-start" disabled>Capture Face</button>
+                    <button id="doneBtn" class="btn btn-stop" disabled>Done - Train Model</button>
+                </div>
+                <div class="preview-list" id="previewList"></div>
+                <div class="progress-bar" id="trainProgress" style="display:none;">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/register.js"></script>
+</body>
+</html>

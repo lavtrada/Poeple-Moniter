@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Counter - Live</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>People Counter</h1>
+            <nav>
+                <a href="/" class="active">Live View</a>
+                <a href="/register">Register</a>
+                <a href="/employees">Employees</a>
+                <a href="/attendance">Attendance</a>
+                <a href="/dashboard.html">Dashboard</a>
+            </nav>
+        </header>
+        <div class="live-section">
+            <div class="video-container">
+                <div class="live-indicator">
+                    <span class="live-dot" id="liveDot"></span>
+                    <span id="statusText">Starting...</span>
+                </div>
+                <div class="count-badge">
+                    <span class="count-num" id="currentCount">0</span>
+                    <span class="count-label">In Frame</span>
+                </div>
+                <img id="videoFeed" src="" alt="Live feed">
+            </div>
+            <div class="info-panel">
+                <div class="stat-box">
+                    <span class="stat-label">Known Employees</span>
+                    <span class="stat-value" id="knownFaces">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Faces Detected</span>
+                    <span class="stat-value" id="totalFaces">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Present Today</span>
+                    <span class="stat-value text-success" id="presentToday">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Phone Alerts</span>
+                    <span class="stat-value text-danger" id="phoneAlerts">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Last Updated</span>
+                    <span class="stat-value" id="lastUpdated" style="font-size:15px;color:var(--text-muted);">--:--:--</span>
+                </div>
+            </div>
+            <div class="persons-panel" id="personsPanel">
+                <h3>
+                    Detected Persons
+                    <span class="count" id="personsCount">0</span>
+                </h3>
+                <div id="personsList" class="persons-list">
+                    <div style="color:var(--text-muted);font-size:13px;padding:12px 0;text-align:center;">No persons detected</div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="startBtn" class="btn btn-start">Start Monitoring</button>
+                <button id="stopBtn" class="btn btn-stop" disabled>Stop</button>
+                <button id="cameraConfigBtn" class="btn btn-config">Camera Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cameraModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2>Camera Settings</h2>
+            <div class="form-group">
+                <label>Camera Type</label>
+                <select id="cameraType">
+                    <option value="local">Local Webcam</option>
+                    <option value="ip">IP / RTSP Camera</option>
+                </select>
+            </div>
+            <div class="form-group" id="cameraSourceGroup">
+                <label>Camera Source</label>
+                <input type="text" id="cameraSource" value="0" placeholder="0 for default, or RTSP URL">
+                <small>For IP camera: rtsp://username:password@ip:port/stream</small>
+            </div>
+            <button id="saveCameraConfig" class="btn btn-start">Save & Restart</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="js/live.js"></script>
+</body>
+</html>

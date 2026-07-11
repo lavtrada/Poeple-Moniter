@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Counter - Attendance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Attendance & Activity</h1>
+            <nav>
+                <a href="/">Live View</a>
+                <a href="/register">Register</a>
+                <a href="/employees">Employees</a>
+                <a href="/attendance" class="active">Attendance</a>
+            </nav>
+        </header>
+        <div class="dashboard-section">
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Employees</h3>
+                    <div class="card-value" id="totalEmployees">0</div>
+                </div>
+                <div class="card">
+                    <h3>Present Today</h3>
+                    <div class="card-value text-success" id="presentToday">0</div>
+                </div>
+                <div class="card">
+                    <h3>Phone Usage Alerts</h3>
+                    <div class="card-value text-danger" id="phoneUsageToday">0</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <div class="table-container">
+                <h2>Today's Attendance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Department</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attendanceTableBody">
+                        <tr><td colspan="5" style="text-align:center;color:var(--text-muted);">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container">
+                <h2>Activity Log (Last 4 Hours)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Employee</th>
+                            <th>Activity</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTableBody">
+                        <tr><td colspan="4" style="text-align:center;color:var(--text-muted);">Loading activity...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

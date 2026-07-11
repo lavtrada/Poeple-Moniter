@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Counter - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard</h1>
+            <nav>
+                <a href="/">Live View</a>
+                <a href="/dashboard.html" class="active">Dashboard</a>
+                <a href="/attendance">Attendance</a>
+            </nav>
+        </header>
+        <div class="dashboard-section">
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Avg People Count</h3>
+                    <span id="avgCount" class="card-value">0</span>
+                </div>
+                <div class="card">
+                    <h3>Peak People Count</h3>
+                    <span id="peakCount" class="card-value">0</span>
+                </div>
+                <div class="card">
+                    <h3>Total People Today</h3>
+                    <span id="totalPeople" class="card-value">0</span>
+                </div>
+                <div class="card">
+                    <h3>Total Unique Faces</h3>
+                    <span id="totalUniqueFaces" class="card-value">0</span>
+                </div>
+                <div class="card">
+                    <h3>Peak Unique Faces/Hr</h3>
+                    <span id="peakUniqueFaces" class="card-value">0</span>
+                </div>
+                <div class="card">
+                    <h3>Total Face Appearances</h3>
+                    <span id="totalFaceAppearances" class="card-value">0</span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="hourlyChart"></canvas>
+            </div>
+            <div class="table-container">
+                <h2>Hourly Breakdown</h2>
+                <table id="hourlyTable">
+                    <thead>
+                        <tr>
+                            <th>Hour</th>
+                            <th>Avg People</th>
+                            <th>Max People</th>
+                            <th>Total People</th>
+                            <th>Unique Faces</th>
+                            <th>Face Appearances</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

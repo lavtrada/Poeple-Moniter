@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Counter - Employees</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Employees</h1>
+            <nav>
+                <a href="/">Live View</a>
+                <a href="/register">Register</a>
+                <a href="/employees" class="active">Employees</a>
+                <a href="/attendance">Attendance</a>
+            </nav>
+        </header>
+        <div class="dashboard-section">
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>All Employees</h2>
+                    <a href="/register" class="btn btn-start" style="text-decoration:none;">+ Add New</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Registered</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeesTableBody">
+                        <tr><td colspan="7" style="text-align:center;color:var(--text-muted);">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container" id="faceSamplesSection" style="display:none;">
+                <h2>Add Face Samples: <span id="sampleEmpName"></span></h2>
+                <p style="color:var(--text-muted);font-size:13px;margin-bottom:16px;">Capture additional face images to improve recognition.</p>
+                <div class="video-container small-video">
+                    <video id="sampleVideo" autoplay playsinline></video>
+                </div>
+                <div class="capture-controls">
+                    <button id="sampleCaptureBtn" class="btn btn-start" disabled>Capture</button>
+                    <button id="sampleUploadBtn" class="btn btn-start" disabled>Upload Samples</button>
+                    <button id="sampleCancelBtn" class="btn btn-ghost">Cancel</button>
+                </div>
+                <div class="preview-list" id="samplePreviewList"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/employees.js"></script>
+</body>
+</html>
